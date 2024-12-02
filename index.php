@@ -14,8 +14,9 @@
             <li><a href="cadastro_cliente.php">Cadastro de Clientes</a></li>
             <li><a href="cadastro_animal.php">Cadastro de Animais</a></li>
             <li><a href="cadastro_consulta.php">Cadastro de Consulta</a></li>
-            <li><a href="cadastro_veterinario.php">Cadastro de Veterinário</a></li>
+            <li><a href="cadastro_vet.php">Cadastro de Veterinário</a></li>
             <li><a href="listagem_animais.php">Listagem de Animais</a></li>
+            <li><a href="listagem_consulta.php">Listagem de Consultas</a></li>
             <li><a href="logout.php">Sair</a></li>
         </ul>
     </div>

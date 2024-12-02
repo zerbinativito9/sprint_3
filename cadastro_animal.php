@@ -5,16 +5,16 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $CodAnimal = $_POST['CodAnimal'];
     $CodCliente = $_POST['CodCliente'];
-    $Nome = $_POST['Nome'];
+    $Animal = $_POST['Animal'];
     $Raça = $_POST['Raça'];
     $RGA = $_POST['RGA'];
     $Observação = $_POST['Observação'];
 
     if ($CodAnimal) {
-        $sql = "UPDATE Animal SET CodCliente='$CodCliente', Nome='$Nome', Raça='$Raça', RGA='$RGA', Observação='$Observação' WHERE CodAnimal='$CodAnimal'";
+        $sql = "UPDATE Animais SET CodCliente='$CodCliente', Animal='$Animal', Raça='$Raça', RGA='$RGA', Observação='$Observação' WHERE CodAnimal='$CodAnimal'";
         $mensagem = "Animal atualizado com sucesso!";
     } else {
-        $sql = "INSERT INTO Animal (CodCliente, Nome, Raça, RGA, Observação) VALUES ('$CodCliente', '$Nome', '$Raça', '$RGA', '$Observação')";
+        $sql = "INSERT INTO Animais (CodCliente, Animal, Raça, RGA, Observação) VALUES ('$CodCliente', '$Animal', '$Raça', '$RGA', '$Observação')";
         $mensagem = "Animal cadastrado com sucesso!";
     }
 
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
-    $sql = "DELETE FROM Animal WHERE CodAnimal='$delete_id'";
+    $sql = "DELETE FROM Animais WHERE CodAnimal='$delete_id'";
     if ($conn->query($sql) === TRUE) {
         $mensagem = "Animal excluído com sucesso!";
     } else {
@@ -33,12 +33,12 @@ if (isset($_GET['delete_id'])) {
     }
 }
 
-$Animais = $conn->query("SELECT a.CodAnimal, a.Nome, a.Raça, a.RGA, a.Observação, c.Cliente AS Cliente_nome FROM Animal a JOIN Clientes c ON a.CodCliente = c.CodCliente");
+$Animais = $conn->query("SELECT a.CodAnimal, a.Animal, a.Raça, a.RGA, a.Observação, c.Cliente AS Cliente_nome FROM Animais a JOIN Clientes c ON a.CodCliente = c.CodCliente");
 
 $Animal = null;
 if (isset($_GET['edit_id'])) {
     $edit_id = $_GET['edit_id'];
-    $Animal = $conn->query("SELECT * FROM Animal WHERE CodAnimal='$edit_id'")->fetch_assoc();
+    $Animal = $conn->query("SELECT * FROM Animais WHERE CodAnimal='$edit_id'")->fetch_assoc();
 }
 
 $Clientes = $conn->query("SELECT CodCliente, Cliente FROM Clientes");
@@ -62,8 +62,8 @@ $Clientes = $conn->query("SELECT CodCliente, Cliente FROM Clientes");
                     <option value="<?php echo $row['CodCliente']; ?>" <?php if ($Animal && $Animal['CodCliente'] == $row['CodCliente']) echo 'selected'; ?>><?php echo $row['Cliente']; ?></option>
                 <?php endwhile; ?>
             </select>
-            <label for="Nome">Nome:</label>
-            <input type="text" name="Nome" value="<?php echo $Animal['Nome'] ?? ''; ?>" required>
+            <label for="Animal">Animal:</label>
+            <input type="text" name="Animal" value="<?php echo $Animal['Animal'] ?? ''; ?>" required>
             <label for="Raça">Raça:</label>
             <input type="text" name="Raça" value="<?php echo $Animal['Raça'] ?? ''; ?>" required>
             <label for="Raça">RGA:</label>
@@ -78,17 +78,17 @@ $Clientes = $conn->query("SELECT CodCliente, Cliente FROM Clientes");
         <table>
             <tr>
                 <th>ID</th>
-                <th>Nome</th>
+                <th>Animal</th>
                 <th>Raça</th>
                 <th>RGA</th>
                 <th>Observação</th>
-                <th>Fornecedor</th>
+                <th>Dono do Animal</th>
                 <th>Ações</th>
             </tr>
             <?php while ($row = $Animais->fetch_assoc()): ?>
             <tr>
                 <td><?php echo $row['CodAnimal']; ?></td>
-                <td><?php echo $row['Nome']; ?></td>
+                <td><?php echo $row['Animal']; ?></td>
                 <td><?php echo $row['Raça']; ?></td>
                 <td><?php echo $row['RGA']; ?></td>
                 <td><?php echo $row['Observação']; ?></td>

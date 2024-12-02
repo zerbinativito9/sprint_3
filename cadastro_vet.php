@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql = "UPDATE Veterinario SET Nome='$Nome', CRMV='$CRMV', Telefone='$Telefone' WHERE CodVeterinario ='$CodVeterinario'";
         $mensagem =  "Veterinario atualizado com sucesso!";
     } else {
-        $sql = "INSERT INTO Clientes (Nome, CRMV, Telefone) VALUES ('$Nome', '$CRMV', '$Telefone')";
+        $sql = "INSERT INTO Veterinario (Nome, CRMV, Telefone) VALUES ('$Nome', '$CRMV', '$Telefone')";
         $mensagem = "Veterinario cadastrado com sucesso!";
     }
 
@@ -27,7 +27,7 @@ if (isset($_GET['delete_id'])) {
     if ($conn->query($sql) === TRUE) {
         $mensagem = "Veterinario excluído com sucesso!";
     } else {
-        $mensagem = "Erro ao excluir Nome: " . $conn->error;
+        $mensagem = "Erro ao excluir Veterinario: " . $conn->error;
     }
 }
 
@@ -51,14 +51,14 @@ if (isset($_GET['edit_id'])) {
     <div class="container">
         <h2>Cadastro de Dono de Pet</h2>
         <form method="post" action="">
-            <input type="hidden" name="CodVeterinario" value="<?php echo $Nome['CodVeterinario'] ?? ''; ?>">
+            <input type="hidden" name="CodVeterinario" value="<?php echo $Veterinario['CodVeterinario'] ?? ''; ?>">
             <label for="Nome">Nome:</label>
-            <input type="text" name="Nome" value="<?php echo $Nome['Nome'] ?? ''; ?>" required>
+            <input type="text" name="Nome" value="<?php echo $Veterinario['Nome'] ?? ''; ?>" required>
             <label for="CRMV">CRMV:</label>
-            <input type="CRMV" name="CRMV" value="<?php echo $Nome['CRMV'] ?? ''; ?>">
+            <input type="CRMV" name="CRMV" value="<?php echo $Veterinario['CRMV'] ?? ''; ?>">
             <label for="Telefone">Telefone:</label>
-            <input type="text" name="Telefone" value="<?php echo $Nome['Telefone'] ?? ''; ?>">
-            <button type="submit"><?php echo $Nome ? 'Atualizar' : 'Cadastrar'; ?></button>
+            <input type="text" name="Telefone" value="<?php echo $Veterinario['Telefone'] ?? ''; ?>">
+            <button type="submit"><?php echo $Veterinario ? 'Atualizar' : 'Cadastrar'; ?></button>
         </form>
         <?php if (isset($mensagem)) echo "<p class='message " . ($conn->error ? "error" : "success") . "'>$mensagem</p>"; ?>
 
@@ -71,7 +71,7 @@ if (isset($_GET['edit_id'])) {
                 <th>Telefone</th>
                 <th>Ações</th>
             </tr>
-            <?php while ($row = $Clientes->fetch_assoc()): ?>
+            <?php while ($row = $Veterinarios->fetch_assoc()): ?>
             <tr>
                 <td><?php echo $row['CodVeterinario']; ?></td>
                 <td><?php echo $row['Nome']; ?></td>

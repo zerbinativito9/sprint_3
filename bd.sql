@@ -1,3 +1,9 @@
+/*
+Dev: João Pedro de Oliveira - JP
+Data: 02/12/2024
+Coloquei algumas observações aqui no banco de dados, se der algo errado corre pro fim desse arquivo
+*/
+
 -- Expressçao SQL para criar banco de dados
 CREATE DATABASE espacopets;
 
@@ -22,16 +28,20 @@ create unique index IDX_Cliente
 	on Clientes(Cliente);
 
 -- Criando a tabela do animal
-create table Animal(
+create table Animais(
 	CodAnimal int not null primary key auto_increment,
     CodCliente int not null,
-    Nome varchar(100),
+    Animal varchar(100),
     Raça varchar(100),
-    RGA varchar(50),
+    RGA varchar(7),
     Observação text);
 
+-- Havia problemas de repetição. Ajustado
+create unique index IDX_Animais
+	on Animais(RGA);
+
 -- Adicionando Chave Estrangeira (Relacionamento entre as duas tabelas)    
-alter table Animal add constraint FK_Clientes_Animal
+alter table Animais add constraint FK_Clientes_Animais
 	foreign key(CodCliente)references Clientes(CodCliente);
 
 create table Veterinarios(
@@ -61,9 +71,11 @@ ALTER TABLE Consulta ADD
 
 --Relacionando Consulta aos animais;
 ALTER TABLE Consulta ADD
-	CONSTRAINT FK_Animal_Consulta FOREIGN KEY(CodAnimal)
-	REFERENCES Animal(CodAnimal);
+	CONSTRAINT FK_Animais_Consulta FOREIGN KEY(CodAnimal)
+	REFERENCES Animais(CodAnimal);
 
 
 -- Expressão SQL para cadastrar um usuário
 INSERT INTO usuarios (usuario, senha) VALUES ('admin', MD5('admin123'));
+
+-- Obs: Devido a problemas com o bdd foi necessária a mudança para o plural nos tópicos "cliente" e "animal"

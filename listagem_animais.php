@@ -4,7 +4,7 @@
 <?php
 if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
-    $sql = "DELETE FROM Animal WHERE CodAnimal='$delete_id'";
+    $sql = "DELETE FROM Animais WHERE CodAnimal='$delete_id'";
     if ($conn->query($sql) === TRUE) {
         $mensagem = "Animal excluído com sucesso!";
     } else {
@@ -12,7 +12,7 @@ if (isset($_GET['delete_id'])) {
     }
 }
 
-$Animais = $conn->query("SELECT a.CodAnimal, a.Nome, a.Raça, a.RGA, a.Observação, c.Cliente AS Cliente_nome FROM Animal a JOIN Clientes c ON a.CodCliente = c.CodCliente");
+$Animais = $conn->query("SELECT a.CodAnimal, a.Animal, a.Raça, a.RGA, a.Observação, c.Cliente AS Cliente_nome FROM Animais a JOIN Clientes c ON a.CodCliente = c.CodCliente");
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ $Animais = $conn->query("SELECT a.CodAnimal, a.Nome, a.Raça, a.RGA, a.Observaç
             <?php while ($row = $Animais->fetch_assoc()): ?>
             <tr>
                 <td><?php echo $row['CodAnimal']; ?></td>
-                <td><?php echo $row['Nome']; ?></td>
+                <td><?php echo $row['Animal']; ?></td>
                 <td><?php echo $row['Raça']; ?></td>
                 <td><?php echo $row['RGA']; ?></td>
                 <td><?php echo $row['Observação']; ?></td>
