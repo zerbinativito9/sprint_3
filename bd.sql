@@ -34,5 +34,36 @@ create table Animal(
 alter table Animal add constraint FK_Clientes_Animal
 	foreign key(CodCliente)references Clientes(CodCliente);
 
+create table Veterinarios(
+    CodVeterinario int not null primary key auto_increment,
+    Nome varchar(100),
+    CRMV varchar(50),
+    Telefone varchar(100)
+);
+
+create unique index IDX_Veterinario
+    on Veterinarios(CRMV);
+
+create table Consulta(
+    CodConsulta int not null primary key auto_increment,
+    CodAnimal int not null,
+    CodVeterinario int not null,
+    Exame BIT, 
+    DataeHora DATETIME,
+    Valor decimal(8, 2),
+    Relatorio varchar (500)
+);
+
+--Relacionando Consulta aos Veterinarios;
+ALTER TABLE Consulta ADD
+	CONSTRAINT FK_Veterinarios_Consulta FOREIGN KEY(CodVeterinario)
+	REFERENCES Veterinarios(CodConsulta);
+
+--Relacionando Consulta aos animais;
+ALTER TABLE Consulta ADD
+	CONSTRAINT FK_Animal_Consulta FOREIGN KEY(CodAnimal)
+	REFERENCES Animal(CodAnimal);
+
+
 -- Expressão SQL para cadastrar um usuário
 INSERT INTO usuarios (usuario, senha) VALUES ('admin', MD5('admin123'));
