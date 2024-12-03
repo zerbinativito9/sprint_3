@@ -49,7 +49,7 @@ if (isset($_GET['edit_id'])) {
 </head>
 <body>
     <div class="container">
-        <h2>Cadastro de Dono de Pet</h2>
+        <h2>Cadastro de Veterinário</h2>
         <form method="post" action="">
             <input type="hidden" name="CodVeterinario" value="<?php echo $Veterinario['CodVeterinario'] ?? ''; ?>">
             <label for="Nome">Nome:</label>

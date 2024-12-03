@@ -20,7 +20,7 @@ $Consultas = $conn->query("SELECT cs.CodConsulta, cs.Exame, cs.DataeHora, cs.Val
 <head>
     <meta charset="UTF-8">
     <title>Listagem de Consultas</title>
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/animal.css">
 </head>
 <body>
     <div class="container">

@@ -49,7 +49,7 @@ $Clientes = $conn->query("SELECT CodCliente, Cliente FROM Clientes");
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Produto</title>
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/animal.css">
 </head>
 <body>
     <div class="container">

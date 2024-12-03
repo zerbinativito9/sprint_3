@@ -54,7 +54,7 @@ $VConsultas = $conn->query("SELECT CodVeterinario, Nome FROM Veterinario");
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Consulta de Animal</title>
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/animal.css">
 </head>
 <body>
     <div class="container">
