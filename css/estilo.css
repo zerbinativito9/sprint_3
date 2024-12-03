@@ -1,7 +1,7 @@
 /* Estilo geral do corpo da página */
 body {
-    font-family: Arial, sans-serif; /* Fonte padrão */
-    background-color: rgb(68, 83, 176); /* Cor de fundo clara */
+    font-family: Arial, sans-serif; 
+    background-color: rgb(68, 83, 176); 
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,20 +12,20 @@ body {
 
 /* Estilo para o container da listagem de consultas e do login */
 .container {
-    background-color: #ffffff; /* Cor de fundo branca */
+    background-color: #ffffff; 
     padding: 20px;
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    width: 70%; /* Ajustado para 70% da largura da tela */
-    max-width: 700px; /* Máxima largura de 700px */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    width: 70%; 
+    max-width: 700px; 
 }
 
 /* Estilo do título da página */
 h2 {
     text-align: center;
-    color: hsl(0, 0%, 0%); /* Cor escura para o título */
-    font-size: 22px; /* Tamanho do título ajustado */
-    margin-bottom: 20px; /* Espaçamento abaixo do título */
+    color: hsl(0, 0%, 0%); 
+    font-size: 22px; 
+    margin-bottom: 20px; 
 }
 
 /* Estilo para os campos de formulário */
@@ -36,9 +36,9 @@ form {
 
 /* Estilo para os rótulos (labels) dos campos */
 label {
-    margin-bottom: 5px; /* Espaço abaixo do rótulo */
+    margin-bottom: 5px; 
     font-weight: bold;
-    color: #555555; /* Cor suave para os rótulos */
+    color: #555555; 
 }
 
 /* Estilo para os campos de entrada (input), textarea e select */
@@ -49,9 +49,9 @@ input[type="datetime"],
 textarea,
 select {
     margin-bottom: 12px;
-    padding: 10px; /* Ajustado para aumentar o padding dos campos */
+    padding: 10px; 
     border: 1px solid #cccccc;
-    border-radius: 6px; /* Bordas arredondadas mais suaves */
+    border-radius: 6px; 
     font-size: 14px;
 }
 
@@ -66,7 +66,7 @@ button {
     background-color: hsl(233, 40%, 45%);
     color: white;
     border: none;
-    border-radius: 6px; /* Bordas arredondadas no botão */
+    border-radius: 6px; 
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
