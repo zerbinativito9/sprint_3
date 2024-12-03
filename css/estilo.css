@@ -1,110 +1,110 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
+<!DOCTYPE html> 
 
-.container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 600px;
-    margin: 20px;
-}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+    body {
+        background-color: #ADD8E6; 
+    }
+   /* Estilos do corpo da página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: hwb(222 20% 45%); 
+            margin: 0; 
+            padding: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+        }
+        
+        /* Estilo para o container do formulário */
+        .container {
+            background-color: #ffffff; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            width: 100%; 
+            max-width: 400px; 
+            
+        }
+        h2 {
+            text-align: center; 
+            color: #000000; 
+        }
 
-h2 {
-    text-align: center;
-    color: #333333;
-}
+        /* Estilos do formulário */
+        form {
+            display: flex; 
+            flex-direction: column; 
+        }
 
-form {
-    display: flex;
-    flex-direction: column;
-}
+        label {
+            margin-bottom: 5px; 
+            font-weight: bold; 
+        }
 
-label {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
+        input[type="text"],
+        input[type="password"] {
+            margin-bottom: 15px; 
+            padding: 10px; 
+            border: 1px solid #cccccc; 
+            border-radius: 4px; 
+        }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-textarea,
-select {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-}
+        /* Estilos do botão */
+        button {
+            padding: 10px; 
+            border: none; 
+            background-color: rgb(72, 134, 202); 
+            color: hwb(217 89% 5%); 
+            border-radius: 4px; 
+            cursor: pointer; 
+        }
+    
+        /* Mudança de cor quando o mouse passa sobre o botão */
+        button:hover {
+            background-color: hwb(211 5% 64%); 
+            color: #ffffff; 
+        }
+        
 
-button {
-    padding: 10px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-}
+        /* Estilos para a mensagem de erro */
+        .message {
+            margin-bottom: 15px; 
+            padding: 10px; 
+            border-radius: 4px; 
+            font-size: 14px; 
+            color: #fff3f4; 
+            background-color: rgb(230, 38, 54);
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <!-- Formulário de login -->
+        <form method="post" action="">
+            <label for="usuario">Usuário:</label>
+            <input type="text" name="usuario" required> <!-- Campo para o nome de usuário -->
 
-button:hover {
-    background-color: #0056b3;
-}
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" required> <!-- Campo para a senha -->
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
+            <button type="submit">Entrar</button> <!-- Botão de login -->
 
-table, th, td {
-    border: 1px solid #cccccc;
-}
-
-th, td {
-    padding: 10px;
-    text-align: left;
-}
-
-th {
-    background-color: #f8f8f8;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.message {
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 4px;
-}
-
-.message.success {
-    background-color: #d4edda;
-    color: #155724;
-}
-
-.message.error {
-    background-color: #f8d7da;
-    color: #721c24;
-}
-.form2{
-
-}
+            <!-- Exibe a mensagem de erro caso o login falhe -->
+            <?php 
+            if (isset($error)) { // Se a variável $error estiver definida, exibe a mensagem
+                echo "<div class='message'>$error</div>"; // Exibe a mensagem de erro com a classe 'message'
+            }
+            ?>
+        </form>
+    </div>
+</body>
+</html>
