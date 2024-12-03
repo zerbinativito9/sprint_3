@@ -27,9 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
-    $sql = "DELETE FROM Consulta W
+    $sql = "DELETE FROM Consulta 
     
-    HERE CodConsulta='$delete_id'";
+    WHERE CodConsulta='$delete_id'";
     if ($conn->query($sql) === TRUE) {
         $mensagem = "Consulta excluída com sucesso!";
     } else {
@@ -76,7 +76,7 @@ $VConsultas = $conn->query("SELECT CodVeterinario, Nome FROM Veterinario");
             <label for="DataeHora">Data e Hora da Consulta:</label>
             <input type="datetime" name="DataeHora" value="<?php echo $Consulta['DataeHora'] ?? ''; ?>" required>
             <label for="Exame">Exame:</label>
-            <input type="checkbox" name="Exame" value="<?php echo $Consulta['Exame'] ?? ''; ?>" required>
+            <input type="checkbox" name="Exame" value="<?php echo $Consulta['Exame'] ?? ''; ?>" >
             <label for="Relatorio">Relatorio:</label>
             <textarea name="Relatorio"><?php echo $Consulta['Relatorio'] ?? ''; ?></textarea>
             <label for="Valor">Valor:</label>
