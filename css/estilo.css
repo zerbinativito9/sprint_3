@@ -1,110 +1,174 @@
-<!DOCTYPE html> 
+/* Estilo geral do corpo da página */
+body {
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    background-color: rgb(68, 83, 176); /* Cor de fundo clara */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <style>
-    body {
-        background-color: #ADD8E6; 
-    }
-   /* Estilos do corpo da página */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: hwb(222 20% 45%); 
-            margin: 0; 
-            padding: 0; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            min-height: 100vh; 
-        }
-        
-        /* Estilo para o container do formulário */
-        .container {
-            background-color: #ffffff; 
-            padding: 20px; 
-            border-radius: 10px; 
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-            width: 100%; 
-            max-width: 400px; 
-            
-        }
-        h2 {
-            text-align: center; 
-            color: #000000; 
-        }
+/* Estilo para o container da listagem de consultas e do login */
+.container {
+    background-color: #ffffff; /* Cor de fundo branca */
+    padding: 20px;
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 70%; /* Ajustado para 70% da largura da tela */
+    max-width: 700px; /* Máxima largura de 700px */
+}
 
-        /* Estilos do formulário */
-        form {
-            display: flex; 
-            flex-direction: column; 
-        }
+/* Estilo do título da página */
+h2 {
+    text-align: center;
+    color: hsl(0, 0%, 0%); /* Cor escura para o título */
+    font-size: 22px; /* Tamanho do título ajustado */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
 
-        label {
-            margin-bottom: 5px; 
-            font-weight: bold; 
-        }
+/* Estilo para os campos de formulário */
+form {
+    display: flex;
+    flex-direction: column;
+}
 
-        input[type="text"],
-        input[type="password"] {
-            margin-bottom: 15px; 
-            padding: 10px; 
-            border: 1px solid #cccccc; 
-            border-radius: 4px; 
-        }
+/* Estilo para os rótulos (labels) dos campos */
+label {
+    margin-bottom: 5px; /* Espaço abaixo do rótulo */
+    font-weight: bold;
+    color: #555555; /* Cor suave para os rótulos */
+}
 
-        /* Estilos do botão */
-        button {
-            padding: 10px; 
-            border: none; 
-            background-color: rgb(72, 134, 202); 
-            color: hwb(217 89% 5%); 
-            border-radius: 4px; 
-            cursor: pointer; 
-        }
-    
-        /* Mudança de cor quando o mouse passa sobre o botão */
-        button:hover {
-            background-color: hwb(211 5% 64%); 
-            color: #ffffff; 
-        }
-        
+/* Estilo para os campos de entrada (input), textarea e select */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="datetime"],
+textarea,
+select {
+    margin-bottom: 12px;
+    padding: 10px; /* Ajustado para aumentar o padding dos campos */
+    border: 1px solid #cccccc;
+    border-radius: 6px; /* Bordas arredondadas mais suaves */
+    font-size: 14px;
+}
 
-        /* Estilos para a mensagem de erro */
-        .message {
-            margin-bottom: 15px; 
-            padding: 10px; 
-            border-radius: 4px; 
-            font-size: 14px; 
-            color: #fff3f4; 
-            background-color: rgb(230, 38, 54);
-            border: 1px solid #f5c6cb;
-            border-radius: 10px;
-        }
-        
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2>Login</h2>
-        <!-- Formulário de login -->
-        <form method="post" action="">
-            <label for="usuario">Usuário:</label>
-            <input type="text" name="usuario" required> <!-- Campo para o nome de usuário -->
+/* Estilo para os checkboxes */
+input[type="checkbox"] {
+    margin-right: 10px;
+}
 
-            <label for="senha">Senha:</label>
-            <input type="password" name="senha" required> <!-- Campo para a senha -->
+/* Estilo para o botão */
+button {
+    padding: 10px;
+    background-color: hsl(233, 40%, 45%);
+    color: white;
+    border: none;
+    border-radius: 6px; /* Bordas arredondadas no botão */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
 
-            <button type="submit">Entrar</button> <!-- Botão de login -->
+/* Efeito de hover para o botão */
+button:hover {
+    background-color: hsl(208, 39%, 49%);
 
-            <!-- Exibe a mensagem de erro caso o login falhe -->
-            <?php 
-            if (isset($error)) { // Se a variável $error estiver definida, exibe a mensagem
-                echo "<div class='message'>$error</div>"; // Exibe a mensagem de erro com a classe 'message'
-            }
-            ?>
-        </form>
-    </div>
-</body>
-</html>
+}
+
+/* Estilo para mensagens de erro e sucesso */
+.message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.message.error {
+    background-color: hsl(354, 95%, 38%);
+    color: hsl(354, 39%, 79%);
+}
+
+/* Estilo da tabela de listagem de consultas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    text-align: left;
+}
+
+/* Estilo para as células da tabela (th e td) */
+table th,
+table td {
+    padding: 10px;
+    border: 1px solid #dddddd;
+}
+
+/* Estilo para o cabeçalho da tabela */
+table th {
+    background-color: #f2f2f2;
+}
+
+/* Estilo para as linhas alternadas da tabela */
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilo para os links */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Efeito de hover para os links */
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para o login - ajustando para uma caixa de login mais compacta */
+.login-container {
+    width: 80%; /* Ajuste para 80% da largura da tela */
+    max-width: 400px; /* Largura máxima da caixa de login */
+    padding: 30px; /* Mais espaço interno */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Sombra mais suave para o login */
+    border-radius: 8px; /* Bordas arredondadas */
+    background-color: #ffffff; /* Fundo branco */
+    margin-top: 20px; /* Margem superior para o login */
+}
+
+.login-container h2 {
+    font-size: 24px; /* Tamanho do título do login */
+    color: #333333;
+    margin-bottom: 15px; /* Margem inferior */
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    margin-bottom: 15px; /* Maior espaçamento entre os campos de login */
+    padding: 12px; /* Mais padding para os campos de login */
+    border-radius: 6px; /* Bordas arredondadas */
+    font-size: 14px;
+    width: 100%; /* Campos de login com largura total */
+    border: 1px solid #cccccc;
+}
+
+.login-container button {
+    padding: 12px;
+    background-color: #2e7fbd;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #45a049;
+}
